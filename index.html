@@ -17,6 +17,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+
+    <!-- simplyCountdown -->
+    <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
+    <script src="countdown/simplyCountdown.min.js"></script>
   </head>
   <body>
     <section
@@ -27,6 +31,7 @@
         <h4>Kepada Bapak/Ibu/Saudara/i,</h4>
         <h1>Marc & Jenira</h1>
         <p>Akan melangsungkan pernikahan dalam:</p>
+        <div class="simply-countdown"></div>
         <a href="#undangan" class="btn btn-lg mt-4">Lihat undangan</a>
       </main>
     </section>
@@ -35,5 +40,20 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script>
+      simplyCountdown(".simply-countdown", {
+        year: 2023, // required
+        month: 12, // required
+        day: 31, // required
+        hours: 8, // Default is 0 [0-23] integer
+        words: {
+          //words displayed into the countdown
+          days: { singular: "hari", plural: "hari" },
+          hours: { singular: "jam", plural: "hari" },
+          minutes: { singular: "menit", plural: "menit" },
+          seconds: { singular: "detik", plural: "detik" },
+        },
+      });
+    </script>
   </body>
 </html>
