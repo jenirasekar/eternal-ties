@@ -59,37 +59,62 @@ body {
   background-color: var(--pink);
 }
 
+.mynavbar {
+}
+
+.mynavbar .navbar-brand,
+.mynavbar .offcanvas-title {
+  font-family: "Sacramento", cursive;
+  font-size: 3.2rem;
+  font-weight: bold;
+}
+
+.mynavbar .nav-link {
+  text-transform: uppercase;
+}
+
+#home {
+  background-image: url(img/flora.jpg);
+  width: 100%;
+  height: 100%;
+}
+
 /* Media Query */
 /* laptop */
 @media screen and (max-width: 992px) {
-    html {
-        font-size: 75%;
-    }
+  html {
+    font-size: 75%;
+  }
 
-    .simply-countdown > .simply-section {
-        padding: 70px;
-    }
+  .simply-countdown > .simply-section {
+    padding: 70px;
+  }
 }
 /* tablet */
 @media screen and (max-width: 768px) {
-    html {
-        font-size: 65%;
-    }
+  html {
+    font-size: 65%;
+  }
 
-    .simply-countdown > .simply-section {
-        padding: 60px;
-        margin: 5px;
-    }
+  .simply-countdown > .simply-section {
+    padding: 60px;
+    margin: 5px;
+  }
+
+  .mynavbar .nav-link {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
 /* mobile phone */
 @media screen and (max-width: 576px) {
-    html {
-        font-size: 60%;
-    }
+  html {
+    font-size: 60%;
+  }
 
-    .simply-countdown > .simply-section {
-        padding: 45px;
-        margin: 3px;
-    }
+  .simply-countdown > .simply-section {
+    padding: 45px;
+    margin: 3px;
+  }
 }
