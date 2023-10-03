@@ -106,7 +106,44 @@ body {
   font-size: 1.1rem;
 }
 
+.home .couple {
+  margin-top: 100px;
+}
+
+.home .couple h3 {
+  font-family: 'Sacramento';
+  font-size: 2.4rem;
+  color: var(--pink);
+}
+
+.home .couple img {
+  width: 100%;
+}
+
+.home .heart {
+  height: 50px;
+  width: 50px;
+  background-color: #fff; 
+  display: flex;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(65px);
+}
+
+.home .heart i {
+  margin: auto;
+  color: var(--pink);
+}
+
 /* Media Query */
+/* xtra large */
+@media screen and (max-width: 1200px){
+  .home .heart {
+    transform: translateX(-50%) translateY(45px);
+  }
+}
 /* laptop */
 @media screen and (max-width: 992px) {
   html {
@@ -115,6 +152,10 @@ body {
 
   .simply-countdown > .simply-section {
     padding: 70px;
+  }
+
+  .home .heart {
+    display: none;
   }
 }
 /* tablet */
