@@ -356,6 +356,11 @@ body {
   .sticky-top {
     overflow: hidden;
   }
+
+  .timeline li .timeline-image {
+    width: 140px;
+    height: 140px;
+  }
 }
 
 /* mobile phone */
@@ -367,5 +372,23 @@ body {
   .simply-countdown > .simply-section {
     padding: 45px;
     margin: 3px;
+  }
+
+  .timeline li .timeline-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .timeline li .timeline-panel {
+    width: 65%;
+    transform: translateX(-20px);
+  }
+
+  .timeline li .timeline-panel::before {
+    top: 30px;
+  
+  }
+  .timeline li .timeline-panel::after {
+    top: 31px;
   }
 }
