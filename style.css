@@ -172,12 +172,14 @@ body {
   font-size: 0.9rem;
 }
 
-.story, .gallery {
+.story,
+.gallery {
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
 
-.story span, .gallery span {
+.story span,
+.gallery span {
   text-transform: uppercase;
   color: #666;
   font-size: 0.9rem;
@@ -186,7 +188,8 @@ body {
   margin-bottom: 1rem;
 }
 
-.story p, .story p {
+.story p,
+.story p {
   font-size: 1rem;
   font-weight: 300;
 }
@@ -306,7 +309,7 @@ body {
   }
 
   .simply-countdown > .simply-section {
-    padding: 70px;
+    padding: 70px !important;
   }
 
   .home .heart {
@@ -349,8 +352,8 @@ body {
   }
 
   .simply-countdown > .simply-section {
-    padding: 60px;
-    margin: 5px;
+    padding: 60px !important;
+    margin: 5px !important;
   }
 
   .mynavbar .nav-link {
@@ -375,8 +378,8 @@ body {
   }
 
   .simply-countdown > .simply-section {
-    padding: 45px;
-    margin: 3px;
+    padding: 45px !important;
+    margin: 3px !important;
   }
 
   .timeline li .timeline-image {
