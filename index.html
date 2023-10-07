@@ -41,12 +41,12 @@
         <h1>Marc & Layla</h1>
         <p>Akan melangsungkan pernikahan dalam:</p>
         <div class="simply-countdown"></div>
-        <a href="#undangan" class="btn btn-lg mt-4">Lihat undangan</a>
+        <a href="#undangan" class="btn btn-lg mt-4" onclick="enabledScroll()">Lihat undangan</a>
       </main>
     </section>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
+    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar" id="undangan">
       <div class="container">
         <a class="navbar-brand" href="#">Eternal Ties</a>
         <button
@@ -283,9 +283,14 @@
             </a>
           </div>
           <div class="col mt-3">
-            <a href="img/gallery/mk_bg.jpg" data-toggle="lightbox" data-caption="Khonsu & Mr. Knight" data-gallery="pic">
+            <a
+              href="img/gallery/mk_bg.jpg"
+              data-toggle="lightbox"
+              data-caption="Khonsu & Mr. Knight"
+              data-gallery="pic"
+            >
               <img src="img/gallery/thumbnail/mk_bg.jpg" alt="Khonsu & Mr. Knight" class="img-fluid w-100 rounded" />
-            </a>  
+            </a>
           </div>
           <div class="col mt-3">
             <a href="img/gallery/ss.jpg" data-toggle="lightbox" data-caption="Scarlett Scarab" data-gallery="pic">
@@ -293,23 +298,40 @@
             </a>
           </div>
           <div class="col mt-3">
-            <a href="https://picsum.photos/id/276/1200/568" data-toggle="lightbox" data-caption="Pic" data-gallery="pic">
+            <a
+              href="https://picsum.photos/id/276/1200/568"
+              data-toggle="lightbox"
+              data-caption="Pic"
+              data-gallery="pic"
+            >
               <img src="https://picsum.photos/id/276/1000/1000" alt="" class="img-fluid w-100 rounded" />
             </a>
           </div>
           <div class="col mt-3">
-            <a href="https://picsum.photos/id/300/1200/568" data-toggle="lightbox" data-caption="Pic" data-gallery="pic">
+            <a
+              href="https://picsum.photos/id/300/1200/568"
+              data-toggle="lightbox"
+              data-caption="Pic"
+              data-gallery="pic"
+            >
               <img src="https://picsum.photos/id/300/1000/1000" alt="" class="img-fluid w-100 rounded" />
             </a>
           </div>
           <div class="col mt-3">
-            <a href="https://picsum.photos/id/123/1200/568" data-toggle="lightbox" data-caption="Pic" data-gallery="pic">
+            <a
+              href="https://picsum.photos/id/123/1200/568"
+              data-toggle="lightbox"
+              data-caption="Pic"
+              data-gallery="pic"
+            >
               <img src="https://picsum.photos/id/123/1000/1000" alt="Scarlett Scarab" class="img-fluid w-100 rounded" />
             </a>
           </div>
         </div>
       </div>
     </section>
+
+    <!--  -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -349,6 +371,33 @@
       offcanvas.addEventListener("hidden.bs.offcanvas", function () {
         stickyTop.style.overflow = "hidden";
       });
+    </script>
+
+    <!-- disabled scroll -->
+    <script>
+      const rootElement = document.querySelector(":root");
+
+      function disabledScroll() {
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        window.onscroll = function () {
+          window.scrollTo(scrollTop, scrollLeft);
+        };
+
+        rootElement.style.scrollBehavior = "auto";
+      }
+
+      function enabledScroll() {
+        window.onscroll = function () {};
+        rootElement.style.scrollBehavior = "smooth";
+
+        localStorage.setItem('opened', 'true');
+      }
+
+      if (!localStorage.getItem('opened')) {
+        disabledScroll();
+      }
     </script>
   </body>
 </html>
