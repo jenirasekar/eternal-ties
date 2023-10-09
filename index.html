@@ -331,7 +331,51 @@
       </div>
     </section>
 
-    <!--  -->
+    <!-- rsvp section -->
+    <section id="rsvp" class="rsvp">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <h2>Konfirmasi Kehadiran</h2>
+            <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- form konfirmasi -->
+      <form
+        method="POST"
+        action="https://script.google.com/macros/s/AKfycbz3UME6b3ddHh40csINxtTBlRAzCUxuu__H_Eafk36FUWAB26XfCeVjZk58SXHmxYCvlg/exec"
+        class="row row-cols-md-auto g-3 align-items-center justify-content-center"
+        id="my-form"
+      >
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" required />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="jumlah" class="form-label">Jumlah</label>
+            <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" length="1" value="1" required />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="status" class="form-label">Konfirmasi</label>
+            <select name="status" id="status" class="form-select" required>
+              <option selected>Pilih salah satu</option>
+              <option value="hadir">Hadir</option>
+              <option value="tidak hadir">Tidak hadir</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 35px">
+          <button class="btn btn-primary">Kirim</button>
+        </div>
+      </form>
+    </section>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -377,6 +421,7 @@
     <script>
       const rootElement = document.querySelector(":root");
 
+      // disabled scroll ketika belum klik btn lihat undangan
       function disabledScroll() {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -385,19 +430,41 @@
           window.scrollTo(scrollTop, scrollLeft);
         };
 
+        // supaya tidak ada animasi scroll kembali ke atas
         rootElement.style.scrollBehavior = "auto";
       }
 
+      // enabled scroll ketika sudah klik btn lihat undangan
       function enabledScroll() {
         window.onscroll = function () {};
         rootElement.style.scrollBehavior = "smooth";
 
-        localStorage.setItem('opened', 'true');
+        // disimpan di local storage browser apabila sudah klik btn
+        localStorage.setItem("opened", "true");
       }
 
-      if (!localStorage.getItem('opened')) {
+      // jika halaman direfresh, tidak perlu mengunci scroll lagi
+      if (!localStorage.getItem("opened")) {
         disabledScroll();
       }
+    </script>
+
+    <!-- submit form konfir -->
+    <script>
+      window.addEventListener("load", function () {
+        const form = document.getElementById("my-form");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const action = e.target.action;
+          fetch(action, {
+            method: "POST",
+            body: data,
+          }).then(() => {
+            alert("Konfirmasi kehadiran berhasil terkirim!");
+          });
+        });
+      });
     </script>
   </body>
 </html>
