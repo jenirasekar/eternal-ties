@@ -41,12 +41,12 @@
         <h1>Marc & Layla</h1>
         <p>Akan melangsungkan pernikahan dalam:</p>
         <div class="simply-countdown"></div>
-        <a href="#undangan" class="btn btn-lg mt-4" onclick="enabledScroll()">Lihat undangan</a>
+        <a href="#home" class="btn btn-lg mt-4" onclick="enabledScroll()">Lihat undangan</a>
       </main>
     </section>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar" id="undangan">
+    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
       <div class="container">
         <a class="navbar-brand" href="#">Eternal Ties</a>
         <button
@@ -437,6 +437,18 @@
       </div>
     </footer>
 
+    <!-- audio -->
+    <div class="audio-container">
+      <audio id="song" autoplay loop>
+        <source src="audio/canon-in-D.mp3" type="audio/mp3">
+      </audio>
+
+      <!-- icon play and pause -->
+      <div class="audio-icon-wrapper" style="display: none;">
+        <i class="bi bi-disc-fill"></i>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
@@ -480,6 +492,11 @@
     <!-- disabled scroll -->
     <script>
       const rootElement = document.querySelector(":root");
+      const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+      const audioIcon = document.querySelector('.audio-icon-wrapper i');
+      const song = document.querySelector('#song');
+      let isPlaying = false;
+
 
       // disabled scroll ketika belum klik btn lihat undangan
       function disabledScroll() {
@@ -498,15 +515,39 @@
       function enabledScroll() {
         window.onscroll = function () {};
         rootElement.style.scrollBehavior = "smooth";
+        playAudio();
 
         // disimpan di local storage browser apabila sudah klik btn
-        localStorage.setItem("opened", "true");
+        // localStorage.setItem("opened", "true");
+      }
+
+      function playAudio() {
+           song.volume = 0.1;
+           audioIconWrapper.style.display = 'flex';
+           song.play();
+           isPlaying = true;
+      }
+
+      audioIconWrapper.onclick = function () {
+        if(isPlaying) {
+          song.pause();
+          audioIcon.classList.remove('bi-disc-fill');
+          audioIcon.classList.add('bi-pause-fill');
+        } else {
+          song.play();
+          audioIcon.classList.add('bi-disc-fill');
+          audioIcon.classList.remove('bi-pause-fill');
+        }
+
+        isPlaying = !isPlaying;
       }
 
       // jika halaman direfresh, tidak perlu mengunci scroll lagi
-      if (!localStorage.getItem("opened")) {
-        disabledScroll();
-      }
+      // if (!localStorage.getItem("opened")) {
+      //   disabledScroll();
+      // }
+
+      disabledScroll();
     </script>
 
     <!-- submit form konfir -->
