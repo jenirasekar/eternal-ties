@@ -37,7 +37,7 @@
       class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white"
     >
       <main>
-        <h4>Kepada Bapak/Ibu/Saudara/i,</h4>
+        <h4>Kepada <span></span></h4>
         <h1>Marc & Layla</h1>
         <p>Akan melangsungkan pernikahan dalam:</p>
         <div class="simply-countdown"></div>
@@ -151,6 +151,15 @@
               Alamat: Grand Empire Palace Hotel. <br />
               Jl. Blauran 57-75, Genteng, Kec. Genteng, Surabaya
             </p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.8540370843525!2d112.7341285!3d-7.257447900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f95cad28de13%3A0x482eba9cc3377a0e!2sGrand%20Empire%20Palace%20Hotel!5e0!3m2!1sid!2sid!4v1697173777010!5m2!1sid!2sid"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
             <a href="https://maps.app.goo.gl/bRGBkFzyD67DNXAt6" target="_blank" class="btn btn-sm btn-light my-3"
               >Klik untuk membuka peta</a
             >
@@ -278,53 +287,41 @@
         </div>
         <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
           <div class="col mt-3">
-            <a href="img/gallery/mk.jfif" data-toggle="lightbox" data-caption="Moon Knight" data-gallery="pic">
-              <img src="img/gallery/thumbnail/mk.jfif" alt="Moon Knight" class="img-fluid w-100 rounded" />
+            <a href="img/gallery/mk1.jpg" data-toggle="lightbox" data-caption="Moon Knight" data-gallery="pic">
+              <img src="img/gallery/thumbnail/mk1.jpg" alt="Moon Knight" class="img-fluid w-100 rounded" />
             </a>
           </div>
           <div class="col mt-3">
-            <a
-              href="img/gallery/mk_bg.jpg"
-              data-toggle="lightbox"
-              data-caption="Khonsu & Mr. Knight"
-              data-gallery="pic"
-            >
-              <img src="img/gallery/thumbnail/mk_bg.jpg" alt="Khonsu & Mr. Knight" class="img-fluid w-100 rounded" />
+            <a href="img/gallery/mk2.jpg" data-toggle="lightbox" data-caption="Scarlett Scarab" data-gallery="pic">
+              <img src="img/gallery/thumbnail/mk2.jpg" alt="Scarlett Scarab" class="img-fluid w-100 rounded" />
             </a>
           </div>
           <div class="col mt-3">
-            <a href="img/gallery/ss.jpg" data-toggle="lightbox" data-caption="Scarlett Scarab" data-gallery="pic">
-              <img src="img/gallery/thumbnail/ss.jpg" alt="" class="img-fluid w-100 rounded" />
+            <a href="img/gallery/mk3.jpg" data-toggle="lightbox" data-caption="Khonsu & Mr. Knight" data-gallery="pic">
+              <img src="img/gallery/thumbnail/mk3.jpg" alt="" class="img-fluid w-100 rounded" />
             </a>
           </div>
           <div class="col mt-3">
-            <a
-              href="https://picsum.photos/id/276/1200/568"
-              data-toggle="lightbox"
-              data-caption="Pic"
-              data-gallery="pic"
-            >
-              <img src="https://picsum.photos/id/276/1000/1000" alt="" class="img-fluid w-100 rounded" />
+            <a href="img/gallery/mk4.jpg" data-toggle="lightbox" data-caption="Khonsu & Mr. Knight" data-gallery="pic">
+              <img src="img/gallery/thumbnail/mk4.jpg" alt="Khonsu & Moon Knight" class="img-fluid w-100 rounded" />
             </a>
           </div>
           <div class="col mt-3">
-            <a
-              href="https://picsum.photos/id/300/1200/568"
-              data-toggle="lightbox"
-              data-caption="Pic"
-              data-gallery="pic"
-            >
-              <img src="https://picsum.photos/id/300/1000/1000" alt="" class="img-fluid w-100 rounded" />
+            <a href="img/gallery/mk5.jpg" data-toggle="lightbox" data-caption="Marc Spector in Field of Reeds" data-gallery="pic">
+              <img
+                src="img/gallery/thumbnail/mk5.jpg"
+                alt="Marc Spector in Field of Reeds"
+                class="img-fluid w-100 rounded"
+              />
             </a>
           </div>
           <div class="col mt-3">
-            <a
-              href="https://picsum.photos/id/123/1200/568"
-              data-toggle="lightbox"
-              data-caption="Pic"
-              data-gallery="pic"
-            >
-              <img src="https://picsum.photos/id/123/1000/1000" alt="Scarlett Scarab" class="img-fluid w-100 rounded" />
+            <a href="img/gallery/mk6.jpg" data-toggle="lightbox" data-caption="Marc Spector & Steven Grant" data-gallery="pic">
+              <img
+                src="img/gallery/thumbnail/mk6.jpg"
+                alt="Marc Spector & Steven Grant"
+                class="img-fluid w-100 rounded"
+              />
             </a>
           </div>
         </div>
@@ -579,7 +576,13 @@
     <!-- nama tamu undangan -->
     <script>
       const urlParams = new URLSearchParams(window.location.search);
-      const nama = urlParams.get("nama");
+      const nama = urlParams.get("n") || "";
+      const pron = urlParams.get("p") || "Bapak/Ibu/Saudara/i";
+      const namaContainer = document.querySelector(".hero h4 span");
+
+      namaContainer.innerText = `${pron} ${nama},`.replace(/ ,$/, ",");
+
+      document.querySelector("#nama").value = nama;
     </script>
   </body>
 </html>
